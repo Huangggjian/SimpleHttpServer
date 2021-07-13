@@ -24,3 +24,19 @@
 
 ## Pressure text
 
+LT+LT
+
+![avatar](https://raw.githubusercontent.com/Huangggjian/SimpleHttpServer/master/imgs/a0b0.png)
+
+LT+ET
+
+![avatar](https://raw.githubusercontent.com/Huangggjian/SimpleHttpServer/master/imgs/a0b1.png)
+
+
+ET+LT
+
+![avatar](https://raw.githubusercontent.com/Huangggjian/SimpleHttpServer/master/imgs/a1b0.png)
+
+ET+ET
+
+![avatar](https://raw.githubusercontent.com/Huangggjian/SimpleHttpServer/master/imgs/a1b1.png)
