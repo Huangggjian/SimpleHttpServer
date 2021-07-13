@@ -1,0 +1,7 @@
+#ifndef _ASYNC_
+#define _ASYNC_
+
+#include <Logger.hpp>
+#include <AsyncLogging.hpp>
+
+#endif
