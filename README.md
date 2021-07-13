@@ -12,7 +12,7 @@
 >**sh build.sh**
 
 
->.**/Run [-p port] [-l Log\_path]  [-t thread\_num]  [-a listen\_mode]  [-b connect\_mode]**
+>.**/Run [-p port] [-l log\_name]  [-t thread\_num]  [-a listen\_mode]  [-b connect\_mode]**
 
 
 - -p，自定义端口号.默认8888
@@ -22,7 +22,9 @@
 - -b，连接套接字模式，0代表LT模式，1代表ET模式
 
 
-## Pressure text
+## Pressure testing
+
+使用Webbench对服务器进行压力测试，对listenfd和connfd分别采用ET和LT模式
 
 LT+LT
 
