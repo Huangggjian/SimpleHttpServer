@@ -75,8 +75,9 @@ int main(int argc, char *argv[])
     strncpy(name, logPath.c_str(), 256);
     //初始化全局日志等级
     Logger::setLogLevel(Logger::TRACE);
-    //构建异步日志类
-    AsyncLogging log(::basename(name), kRollSize, 3.0);
+    //构建单例模式-异步日志类
+    //AsyncLogging log(::basename(name), kRollSize, 3.0);
+    AsyncLogging &log = AsyncLogging::GetLogInstance(::basename(name), kRollSize, 3.0);
     g_asyncLog = &log;
     //输出重定向
     Logger::setOutput(asyncOutput);

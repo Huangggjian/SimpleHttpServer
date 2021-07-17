@@ -15,13 +15,15 @@
 class AsyncLogging
 {
 public:
-    AsyncLogging(const std::string filePath, off_t rollSize, double flushInterval = 3.0);
-    ~AsyncLogging();
-
-    void start()
+        void start()
     {
         m_isRunning = true;
         m_thread.start();
+    }
+    static AsyncLogging &GetLogInstance(const std::string filePath, off_t rollSize, double flushInterval = 3.0)
+    {
+        static AsyncLogging log = AsyncLogging(filePath, rollSize, flushInterval);
+        return log;
     }
 
     void stop()
@@ -36,7 +38,8 @@ public:
 private:
     AsyncLogging(const AsyncLogging &);
     AsyncLogging &operator=(const AsyncLogging &);
-
+    AsyncLogging(const std::string filePath, off_t rollSize, double flushInterval = 3.0);
+    ~AsyncLogging();
     void threadRoutine();
 
     typedef LogBuffer<kLargeBuffer> Buffer;          //Buffer大小4M
