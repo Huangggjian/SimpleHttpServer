@@ -10,8 +10,7 @@
 #include "ptr_vector.hpp"
 #include "Condition.hpp"
 
-/* AsyncLogging就是实现异步日志的类，其中有两个主要函数threadRoutine和append，append线程是由各种其他线程来执行的，就是把日志内容写到相应的
- * 缓存区中，threadRoutine函数则是由一个专门线程负责，就是把缓存区中的数据写入日志文件当中*/
+
 class AsyncLogging
 {
 public:
@@ -22,7 +21,7 @@ public:
     }
     static AsyncLogging &GetLogInstance(const std::string filePath, off_t rollSize, double flushInterval = 3.0)
     {
-        static AsyncLogging log = AsyncLogging(filePath, rollSize, flushInterval);
+        static AsyncLogging log(filePath, rollSize, flushInterval);
         return log;
     }
 
@@ -36,8 +35,8 @@ public:
     void append(const char *logline, std::size_t len);
 
 private:
-    AsyncLogging(const AsyncLogging &);
-    AsyncLogging &operator=(const AsyncLogging &);
+    AsyncLogging(const AsyncLogging &) = delete;
+    AsyncLogging &operator=(const AsyncLogging &) = delete;
     AsyncLogging(const std::string filePath, off_t rollSize, double flushInterval = 3.0);
     ~AsyncLogging();
     void threadRoutine();
